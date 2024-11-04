@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+:root {
+    --neon-pink: #ff00ff;
+    --neon-blue: #00ffff;
+    --neon-green: #00ff00;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #000;
+    color: var(--neon-pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+form {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--neon-blue);
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    color: var(--neon-pink);
+    border-radius: 8px;
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+input {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--neon-green);
+    outline: none;
+    border: 2px solid var(--neon-blue);
+}
+
+button {
+    background: var(--neon-pink);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#qrcode {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid var(--neon-blue);
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+    flex-direction: column;
+}
+
+#qrcode img {
+    width: 200px;
+    height: 200px;
+}
+
+#download-btn {
+    display: none;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: var(--neon-green);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+}

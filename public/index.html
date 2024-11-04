@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk QR Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="qrForm">
+        <h1>QR_PUNK</h1>
+        <input type="url" id="url-input" placeholder="Enter URL" required>
+        <button type="submit">Generate</button>
+        <div id="qrcode"></div>
+        <a id="download-btn" download="qr_code.png">Download QR Code</a>
+    </form>
+
+    <script>
+        document.getElementById("qrForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const url = document.getElementById("url-input").value;
+
+            try {
+                const response = await fetch("/generateQR", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ url })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const qrCodeImage = data.qrCodeImage;
+
+                    document.getElementById("qrcode").innerHTML = `<img src="${qrCodeImage}" alt="QR Code"/>`;
+
+                    const downloadBtn = document.getElementById("download-btn");
+                    downloadBtn.href = qrCodeImage;
+                    downloadBtn.style.display = "inline-block";
+                } else {
+                    document.getElementById("qrcode").textContent = "Failed to generate QR Code";
+                }
+            } catch {
+                document.getElementById("qrcode").textContent = "An error occurred";
+            }
+        });
+    </script>
+</body>
+</html>
